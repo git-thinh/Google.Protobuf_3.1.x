@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpTest.Net.RpcLibrary", "CSharpTest.Net.RpcLibrary\CSharpTest.Net.RpcLibrary.csproj", "{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Protobuf_3.1.x_Nov.30.2016", "Google.Protobuf_3.1.x_Nov.30.2016\Google.Protobuf_3.1.x_Nov.30.2016.csproj", "{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Protobuf_3.0.0_Nov.12.2015", "Google.Protobuf_3.0.0_Nov.12.2015\Google.Protobuf_3.0.0_Nov.12.2015.csproj", "{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBookDemo", "AddressBook\AddressBookDemo.csproj", "{E96286D8-55E6-49B8-A16C-40C20F559356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Protobuf.Test", "Google.Protobuf.Test\Google.Protobuf.Test.csproj", "{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,24 +16,24 @@ Global
 		Release40|Any CPU = Release40|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Release40|Any CPU.ActiveCfg = Release|Any CPU
-		{399E67C2-A18D-4C5C-9FCF-8BEA884EC8D2}.Release40|Any CPU.Build.0 = Release|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Release40|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}.Release40|Any CPU.Build.0 = Release|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Release40|Any CPU.ActiveCfg = Release|Any CPU
-		{826B8C4E-8E9A-4FA9-A524-3C40E7D9ABCB}.Release40|Any CPU.Build.0 = Release|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Release40|Any CPU.ActiveCfg = Release|Any CPU
+		{E96286D8-55E6-49B8-A16C-40C20F559356}.Release40|Any CPU.Build.0 = Release|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Release40|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}.Release40|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

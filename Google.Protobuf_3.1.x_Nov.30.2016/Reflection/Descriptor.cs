@@ -9,8 +9,8 @@ using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
 namespace Google.Protobuf.Reflection {
 
-  /// <summary>Holder for reflection information generated from google/protobuf/descriptor.proto</summary>
-  internal static partial class DescriptorReflection {
+    /// <summary>Holder for reflection information generated from google/protobuf/descriptor.proto</summary>
+    public static partial class DescriptorReflection {
 
     #region Descriptor
     /// <summary>File descriptor for google/protobuf/descriptor.proto</summary>
@@ -169,12 +169,12 @@ namespace Google.Protobuf.Reflection {
     #endregion
 
   }
-  #region Messages
-  /// <summary>
-  ///  The protocol compiler can output a FileDescriptorSet containing the .proto
-  ///  files it parses.
-  /// </summary>
-  internal sealed partial class FileDescriptorSet : pb::IMessage<FileDescriptorSet> {
+    #region Messages
+    /// <summary>
+    ///  The protocol compiler can output a FileDescriptorSet containing the .proto
+    ///  files it parses.
+    /// </summary>
+    public sealed partial class FileDescriptorSet : pb::IMessage<FileDescriptorSet> {
     private static readonly pb::MessageParser<FileDescriptorSet> _parser = new pb::MessageParser<FileDescriptorSet>(() => new FileDescriptorSet());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FileDescriptorSet> Parser { get { return _parser; } }
@@ -283,10 +283,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a complete .proto file.
-  /// </summary>
-  internal sealed partial class FileDescriptorProto : pb::IMessage<FileDescriptorProto> {
+    /// <summary>
+    ///  Describes a complete .proto file.
+    /// </summary>
+    public sealed partial class FileDescriptorProto : pb::IMessage<FileDescriptorProto> {
     private static readonly pb::MessageParser<FileDescriptorProto> _parser = new pb::MessageParser<FileDescriptorProto>(() => new FileDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FileDescriptorProto> Parser { get { return _parser; } }
@@ -436,7 +436,7 @@ namespace Google.Protobuf.Reflection {
         = pb::FieldCodec.ForMessage(58, global::Google.Protobuf.Reflection.FieldDescriptorProto.Parser);
     private readonly pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> extension_ = new pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Extension {
+    internal pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Extension {
       get { return extension_; }
     }
 
@@ -698,10 +698,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a message type.
-  /// </summary>
-  internal sealed partial class DescriptorProto : pb::IMessage<DescriptorProto> {
+    /// <summary>
+    ///  Describes a message type.
+    /// </summary>
+    public sealed partial class DescriptorProto : pb::IMessage<DescriptorProto> {
     private static readonly pb::MessageParser<DescriptorProto> _parser = new pb::MessageParser<DescriptorProto>(() => new DescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<DescriptorProto> Parser { get { return _parser; } }
@@ -759,7 +759,7 @@ namespace Google.Protobuf.Reflection {
         = pb::FieldCodec.ForMessage(18, global::Google.Protobuf.Reflection.FieldDescriptorProto.Parser);
     private readonly pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> field_ = new pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Field {
+    internal pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Field {
       get { return field_; }
     }
 
@@ -769,7 +769,7 @@ namespace Google.Protobuf.Reflection {
         = pb::FieldCodec.ForMessage(50, global::Google.Protobuf.Reflection.FieldDescriptorProto.Parser);
     private readonly pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> extension_ = new pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Extension {
+    internal pbc::RepeatedField<global::Google.Protobuf.Reflection.FieldDescriptorProto> Extension {
       get { return extension_; }
     }
 
@@ -1018,7 +1018,7 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the DescriptorProto message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      internal sealed partial class ExtensionRange : pb::IMessage<ExtensionRange> {
+            public sealed partial class ExtensionRange : pb::IMessage<ExtensionRange> {
         private static readonly pb::MessageParser<ExtensionRange> _parser = new pb::MessageParser<ExtensionRange>(() => new ExtensionRange());
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pb::MessageParser<ExtensionRange> Parser { get { return _parser; } }
@@ -1163,12 +1163,12 @@ namespace Google.Protobuf.Reflection {
 
       }
 
-      /// <summary>
-      ///  Range of reserved tag numbers. Reserved tag numbers may not be used by
-      ///  fields or extension ranges in the same message. Reserved ranges may
-      ///  not overlap.
-      /// </summary>
-      internal sealed partial class ReservedRange : pb::IMessage<ReservedRange> {
+            /// <summary>
+            ///  Range of reserved tag numbers. Reserved tag numbers may not be used by
+            ///  fields or extension ranges in the same message. Reserved ranges may
+            ///  not overlap.
+            /// </summary>
+            public sealed partial class ReservedRange : pb::IMessage<ReservedRange> {
         private static readonly pb::MessageParser<ReservedRange> _parser = new pb::MessageParser<ReservedRange>(() => new ReservedRange());
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pb::MessageParser<ReservedRange> Parser { get { return _parser; } }
@@ -1324,10 +1324,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a field within a message.
-  /// </summary>
-  internal sealed partial class FieldDescriptorProto : pb::IMessage<FieldDescriptorProto> {
+    /// <summary>
+    ///  Describes a field within a message.
+    /// </summary>
+    internal sealed partial class FieldDescriptorProto : pb::IMessage<FieldDescriptorProto> {
     private static readonly pb::MessageParser<FieldDescriptorProto> _parser = new pb::MessageParser<FieldDescriptorProto>(() => new FieldDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FieldDescriptorProto> Parser { get { return _parser; } }
@@ -1736,7 +1736,7 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the FieldDescriptorProto message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      internal enum Type {
+            public enum Type {
         /// <summary>
         ///  0 is reserved for errors.
         ///  Order is weird for historical reasons.
@@ -1784,7 +1784,7 @@ namespace Google.Protobuf.Reflection {
         [pbr::OriginalName("TYPE_SINT64")] Sint64 = 18,
       }
 
-      internal enum Label {
+            public enum Label {
         /// <summary>
         ///  0 is reserved for errors
         /// </summary>
@@ -1801,10 +1801,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a oneof.
-  /// </summary>
-  internal sealed partial class OneofDescriptorProto : pb::IMessage<OneofDescriptorProto> {
+    /// <summary>
+    ///  Describes a oneof.
+    /// </summary>
+    public sealed partial class OneofDescriptorProto : pb::IMessage<OneofDescriptorProto> {
     private static readonly pb::MessageParser<OneofDescriptorProto> _parser = new pb::MessageParser<OneofDescriptorProto>(() => new OneofDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<OneofDescriptorProto> Parser { get { return _parser; } }
@@ -1955,10 +1955,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes an enum type.
-  /// </summary>
-  internal sealed partial class EnumDescriptorProto : pb::IMessage<EnumDescriptorProto> {
+    /// <summary>
+    ///  Describes an enum type.
+    /// </summary>
+    public sealed partial class EnumDescriptorProto : pb::IMessage<EnumDescriptorProto> {
     private static readonly pb::MessageParser<EnumDescriptorProto> _parser = new pb::MessageParser<EnumDescriptorProto>(() => new EnumDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<EnumDescriptorProto> Parser { get { return _parser; } }
@@ -2129,10 +2129,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a value within an enum.
-  /// </summary>
-  internal sealed partial class EnumValueDescriptorProto : pb::IMessage<EnumValueDescriptorProto> {
+    /// <summary>
+    ///  Describes a value within an enum.
+    /// </summary>
+    public sealed partial class EnumValueDescriptorProto : pb::IMessage<EnumValueDescriptorProto> {
     private static readonly pb::MessageParser<EnumValueDescriptorProto> _parser = new pb::MessageParser<EnumValueDescriptorProto>(() => new EnumValueDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<EnumValueDescriptorProto> Parser { get { return _parser; } }
@@ -2311,10 +2311,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a service.
-  /// </summary>
-  internal sealed partial class ServiceDescriptorProto : pb::IMessage<ServiceDescriptorProto> {
+    /// <summary>
+    ///  Describes a service.
+    /// </summary>
+    public sealed partial class ServiceDescriptorProto : pb::IMessage<ServiceDescriptorProto> {
     private static readonly pb::MessageParser<ServiceDescriptorProto> _parser = new pb::MessageParser<ServiceDescriptorProto>(() => new ServiceDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<ServiceDescriptorProto> Parser { get { return _parser; } }
@@ -2485,10 +2485,10 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes a method of a service.
-  /// </summary>
-  internal sealed partial class MethodDescriptorProto : pb::IMessage<MethodDescriptorProto> {
+    /// <summary>
+    ///  Describes a method of a service.
+    /// </summary>
+    public sealed partial class MethodDescriptorProto : pb::IMessage<MethodDescriptorProto> {
     private static readonly pb::MessageParser<MethodDescriptorProto> _parser = new pb::MessageParser<MethodDescriptorProto>(() => new MethodDescriptorProto());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<MethodDescriptorProto> Parser { get { return _parser; } }
@@ -2761,7 +2761,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class FileOptions : pb::IMessage<FileOptions> {
+    public sealed partial class FileOptions : pb::IMessage<FileOptions> {
     private static readonly pb::MessageParser<FileOptions> _parser = new pb::MessageParser<FileOptions>(() => new FileOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FileOptions> Parser { get { return _parser; } }
@@ -3336,10 +3336,10 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the FileOptions message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      /// <summary>
-      ///  Generated classes can be optimized for speed or code size.
-      /// </summary>
-      internal enum OptimizeMode {
+            /// <summary>
+            ///  Generated classes can be optimized for speed or code size.
+            /// </summary>
+            public enum OptimizeMode {
         /// <summary>
         ///  Generate complete code for parsing, serialization,
         /// </summary>
@@ -3359,7 +3359,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class MessageOptions : pb::IMessage<MessageOptions> {
+    public sealed partial class MessageOptions : pb::IMessage<MessageOptions> {
     private static readonly pb::MessageParser<MessageOptions> _parser = new pb::MessageParser<MessageOptions>(() => new MessageOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<MessageOptions> Parser { get { return _parser; } }
@@ -3637,7 +3637,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class FieldOptions : pb::IMessage<FieldOptions> {
+    internal sealed partial class FieldOptions : pb::IMessage<FieldOptions> {
     private static readonly pb::MessageParser<FieldOptions> _parser = new pb::MessageParser<FieldOptions>(() => new FieldOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<FieldOptions> Parser { get { return _parser; } }
@@ -3981,7 +3981,7 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the FieldOptions message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      internal enum CType {
+            public enum CType {
         /// <summary>
         ///  Default mode.
         /// </summary>
@@ -3990,7 +3990,7 @@ namespace Google.Protobuf.Reflection {
         [pbr::OriginalName("STRING_PIECE")] StringPiece = 2,
       }
 
-      internal enum JSType {
+            public enum JSType {
         /// <summary>
         ///  Use the default type.
         /// </summary>
@@ -4010,7 +4010,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class OneofOptions : pb::IMessage<OneofOptions> {
+    public sealed partial class OneofOptions : pb::IMessage<OneofOptions> {
     private static readonly pb::MessageParser<OneofOptions> _parser = new pb::MessageParser<OneofOptions>(() => new OneofOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<OneofOptions> Parser { get { return _parser; } }
@@ -4122,7 +4122,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class EnumOptions : pb::IMessage<EnumOptions> {
+    public sealed partial class EnumOptions : pb::IMessage<EnumOptions> {
     private static readonly pb::MessageParser<EnumOptions> _parser = new pb::MessageParser<EnumOptions>(() => new EnumOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<EnumOptions> Parser { get { return _parser; } }
@@ -4300,7 +4300,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class EnumValueOptions : pb::IMessage<EnumValueOptions> {
+    public sealed partial class EnumValueOptions : pb::IMessage<EnumValueOptions> {
     private static readonly pb::MessageParser<EnumValueOptions> _parser = new pb::MessageParser<EnumValueOptions>(() => new EnumValueOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<EnumValueOptions> Parser { get { return _parser; } }
@@ -4446,7 +4446,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class ServiceOptions : pb::IMessage<ServiceOptions> {
+    public sealed partial class ServiceOptions : pb::IMessage<ServiceOptions> {
     private static readonly pb::MessageParser<ServiceOptions> _parser = new pb::MessageParser<ServiceOptions>(() => new ServiceOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<ServiceOptions> Parser { get { return _parser; } }
@@ -4592,7 +4592,7 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  internal sealed partial class MethodOptions : pb::IMessage<MethodOptions> {
+    public sealed partial class MethodOptions : pb::IMessage<MethodOptions> {
     private static readonly pb::MessageParser<MethodOptions> _parser = new pb::MessageParser<MethodOptions>(() => new MethodOptions());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<MethodOptions> Parser { get { return _parser; } }
@@ -4738,15 +4738,15 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  A message representing a option the parser does not recognize. This only
-  ///  appears in options protos created by the compiler::Parser class.
-  ///  DescriptorPool resolves these when building Descriptor objects. Therefore,
-  ///  options protos in descriptor objects (e.g. returned by Descriptor::options(),
-  ///  or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
-  ///  in them.
-  /// </summary>
-  internal sealed partial class UninterpretedOption : pb::IMessage<UninterpretedOption> {
+    /// <summary>
+    ///  A message representing a option the parser does not recognize. This only
+    ///  appears in options protos created by the compiler::Parser class.
+    ///  DescriptorPool resolves these when building Descriptor objects. Therefore,
+    ///  options protos in descriptor objects (e.g. returned by Descriptor::options(),
+    ///  or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
+    ///  in them.
+    /// </summary>
+    public sealed partial class UninterpretedOption : pb::IMessage<UninterpretedOption> {
     private static readonly pb::MessageParser<UninterpretedOption> _parser = new pb::MessageParser<UninterpretedOption>(() => new UninterpretedOption());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<UninterpretedOption> Parser { get { return _parser; } }
@@ -5029,14 +5029,14 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the UninterpretedOption message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      /// <summary>
-      ///  The name of the uninterpreted option.  Each string represents a segment in
-      ///  a dot-separated name.  is_extension is true iff a segment represents an
-      ///  extension (denoted with parentheses in options specs in .proto files).
-      ///  E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
-      ///  "foo.(bar.baz).qux".
-      /// </summary>
-      internal sealed partial class NamePart : pb::IMessage<NamePart> {
+            /// <summary>
+            ///  The name of the uninterpreted option.  Each string represents a segment in
+            ///  a dot-separated name.  is_extension is true iff a segment represents an
+            ///  extension (denoted with parentheses in options specs in .proto files).
+            ///  E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
+            ///  "foo.(bar.baz).qux".
+            /// </summary>
+            public sealed partial class NamePart : pb::IMessage<NamePart> {
         private static readonly pb::MessageParser<NamePart> _parser = new pb::MessageParser<NamePart>(() => new NamePart());
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pb::MessageParser<NamePart> Parser { get { return _parser; } }
@@ -5186,11 +5186,11 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Encapsulates information about the original source file from which a
-  ///  FileDescriptorProto was generated.
-  /// </summary>
-  internal sealed partial class SourceCodeInfo : pb::IMessage<SourceCodeInfo> {
+    /// <summary>
+    ///  Encapsulates information about the original source file from which a
+    ///  FileDescriptorProto was generated.
+    /// </summary>
+    public sealed partial class SourceCodeInfo : pb::IMessage<SourceCodeInfo> {
     private static readonly pb::MessageParser<SourceCodeInfo> _parser = new pb::MessageParser<SourceCodeInfo>(() => new SourceCodeInfo());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<SourceCodeInfo> Parser { get { return _parser; } }
@@ -5346,7 +5346,7 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the SourceCodeInfo message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      internal sealed partial class Location : pb::IMessage<Location> {
+            public sealed partial class Location : pb::IMessage<Location> {
         private static readonly pb::MessageParser<Location> _parser = new pb::MessageParser<Location>(() => new Location());
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pb::MessageParser<Location> Parser { get { return _parser; } }
@@ -5639,12 +5639,12 @@ namespace Google.Protobuf.Reflection {
 
   }
 
-  /// <summary>
-  ///  Describes the relationship between generated code and its original source
-  ///  file. A GeneratedCodeInfo message is associated with only one generated
-  ///  source file, but may contain references to different source .proto files.
-  /// </summary>
-  internal sealed partial class GeneratedCodeInfo : pb::IMessage<GeneratedCodeInfo> {
+    /// <summary>
+    ///  Describes the relationship between generated code and its original source
+    ///  file. A GeneratedCodeInfo message is associated with only one generated
+    ///  source file, but may contain references to different source .proto files.
+    /// </summary>
+    public sealed partial class GeneratedCodeInfo : pb::IMessage<GeneratedCodeInfo> {
     private static readonly pb::MessageParser<GeneratedCodeInfo> _parser = new pb::MessageParser<GeneratedCodeInfo>(() => new GeneratedCodeInfo());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<GeneratedCodeInfo> Parser { get { return _parser; } }
@@ -5759,7 +5759,7 @@ namespace Google.Protobuf.Reflection {
     /// <summary>Container for nested types declared in the GeneratedCodeInfo message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      internal sealed partial class Annotation : pb::IMessage<Annotation> {
+            public sealed partial class Annotation : pb::IMessage<Annotation> {
         private static readonly pb::MessageParser<Annotation> _parser = new pb::MessageParser<Annotation>(() => new Annotation());
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pb::MessageParser<Annotation> Parser { get { return _parser; } }

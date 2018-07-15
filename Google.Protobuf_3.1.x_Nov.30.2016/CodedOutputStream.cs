@@ -474,7 +474,7 @@ namespace Google.Protobuf
         /// there's enough buffer space left to whizz through without checking
         /// for each byte; otherwise, we resort to calling WriteRawByte each time.
         /// </summary>
-        internal void WriteRawVarint32(uint value)
+        public void WriteRawVarint32(uint value)
         {
             // Optimize for the common case of a single byte value
             if (value < 128 && position < limit)
@@ -503,7 +503,7 @@ namespace Google.Protobuf
             }
         }
 
-        internal void WriteRawVarint64(ulong value)
+        public void WriteRawVarint64(ulong value)
         {
             while (value > 127 && position < limit)
             {
@@ -525,7 +525,7 @@ namespace Google.Protobuf
             }
         }
 
-        internal void WriteRawLittleEndian32(uint value)
+        public void WriteRawLittleEndian32(uint value)
         {
             if (position + 4 > limit)
             {
@@ -543,7 +543,7 @@ namespace Google.Protobuf
             }
         }
 
-        internal void WriteRawLittleEndian64(ulong value)
+        public void WriteRawLittleEndian64(ulong value)
         {
             if (position + 8 > limit)
             {
@@ -569,7 +569,7 @@ namespace Google.Protobuf
             }
         }
 
-        internal void WriteRawByte(byte value)
+        public void WriteRawByte(byte value)
         {
             if (position == limit)
             {
@@ -579,7 +579,7 @@ namespace Google.Protobuf
             buffer[position++] = value;
         }
 
-        internal void WriteRawByte(uint value)
+        public void WriteRawByte(uint value)
         {
             WriteRawByte((byte) value);
         }
@@ -587,7 +587,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Writes out an array of bytes.
         /// </summary>
-        internal void WriteRawBytes(byte[] value)
+        public void WriteRawBytes(byte[] value)
         {
             WriteRawBytes(value, 0, value.Length);
         }
@@ -595,7 +595,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Writes out part of an array of bytes.
         /// </summary>
-        internal void WriteRawBytes(byte[] value, int offset, int length)
+        public void WriteRawBytes(byte[] value, int offset, int length)
         {
             if (limit - position >= length)
             {
@@ -642,7 +642,7 @@ namespace Google.Protobuf
         /// sign-extended to 64 bits to be varint encoded, thus always taking
         /// 10 bytes on the wire.)
         /// </remarks>
-        internal static uint EncodeZigZag32(int n)
+        public static uint EncodeZigZag32(int n)
         {
             // Note:  the right-shift must be arithmetic
             return (uint) ((n << 1) ^ (n >> 31));
@@ -657,7 +657,7 @@ namespace Google.Protobuf
         /// sign-extended to 64 bits to be varint encoded, thus always taking
         /// 10 bytes on the wire.)
         /// </remarks>
-        internal static ulong EncodeZigZag64(long n)
+        public static ulong EncodeZigZag64(long n)
         {
             return (ulong) ((n << 1) ^ (n >> 63));
         }

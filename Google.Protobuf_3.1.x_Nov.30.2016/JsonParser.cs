@@ -118,7 +118,7 @@ namespace Google.Protobuf
         /// </summary>
         /// <param name="message">The message to merge the JSON information into.</param>
         /// <param name="json">The JSON to parse.</param>
-        internal void Merge(IMessage message, string json)
+        public void Merge(IMessage message, string json)
         {
             Merge(message, new StringReader(json));
         }
@@ -128,7 +128,7 @@ namespace Google.Protobuf
         /// </summary>
         /// <param name="message">The message to merge the JSON information into.</param>
         /// <param name="jsonReader">Reader providing the JSON to parse.</param>
-        internal void Merge(IMessage message, TextReader jsonReader)
+        public void Merge(IMessage message, TextReader jsonReader)
         {
             var tokenizer = JsonTokenizer.FromTextReader(jsonReader);
             Merge(message, tokenizer);

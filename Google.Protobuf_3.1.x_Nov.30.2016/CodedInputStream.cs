@@ -93,9 +93,9 @@ namespace Google.Protobuf
         private uint nextTag = 0;
         private bool hasNextTag = false;
 
-        internal const int DefaultRecursionLimit = 64;
-        internal const int DefaultSizeLimit = 64 << 20; // 64MB
-        internal const int BufferSize = 4096;
+        public const int DefaultRecursionLimit = 64;
+        public const int DefaultSizeLimit = 64 << 20; // 64MB
+        public const int BufferSize = 4096;
 
         /// <summary>
         /// The total number of bytes read before the current buffer. The
@@ -167,7 +167,7 @@ namespace Google.Protobuf
         /// Creates a new CodedInputStream reading data from the given
         /// stream and buffer, using the default limits.
         /// </summary>
-        internal CodedInputStream(Stream input, byte[] buffer, int bufferPos, int bufferSize)
+        public CodedInputStream(Stream input, byte[] buffer, int bufferPos, int bufferSize)
         {
             this.input = input;
             this.buffer = buffer;
@@ -185,7 +185,7 @@ namespace Google.Protobuf
         /// This chains to the version with the default limits instead of vice versa to avoid
         /// having to check that the default values are valid every time.
         /// </remarks>
-        internal CodedInputStream(Stream input, byte[] buffer, int bufferPos, int bufferSize, int sizeLimit, int recursionLimit)
+        public CodedInputStream(Stream input, byte[] buffer, int bufferPos, int bufferSize, int sizeLimit, int recursionLimit)
             : this(input, buffer, bufferPos, bufferSize)
         {
             if (sizeLimit <= 0)
@@ -741,7 +741,7 @@ namespace Google.Protobuf
         /// That means we can check the size just once, then just read directly from the buffer
         /// without constant rechecking of the buffer length.
         /// </summary>
-        internal uint ReadRawVarint32()
+        public uint ReadRawVarint32()
         {
             if (bufferPos + 5 > bufferSize)
             {
@@ -806,7 +806,7 @@ namespace Google.Protobuf
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        internal static uint ReadRawVarint32(Stream input)
+        public static uint ReadRawVarint32(Stream input)
         {
             int result = 0;
             int offset = 0;
@@ -842,7 +842,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Reads a raw varint from the stream.
         /// </summary>
-        internal ulong ReadRawVarint64()
+        public ulong ReadRawVarint64()
         {
             int shift = 0;
             ulong result = 0;
@@ -862,7 +862,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Reads a 32-bit little-endian integer from the stream.
         /// </summary>
-        internal uint ReadRawLittleEndian32()
+        public uint ReadRawLittleEndian32()
         {
             uint b1 = ReadRawByte();
             uint b2 = ReadRawByte();
@@ -874,7 +874,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Reads a 64-bit little-endian integer from the stream.
         /// </summary>
-        internal ulong ReadRawLittleEndian64()
+        public ulong ReadRawLittleEndian64()
         {
             ulong b1 = ReadRawByte();
             ulong b2 = ReadRawByte();
@@ -897,7 +897,7 @@ namespace Google.Protobuf
         /// sign-extended to 64 bits to be varint encoded, thus always taking
         /// 10 bytes on the wire.)
         /// </remarks>
-        internal static int DecodeZigZag32(uint n)
+        public static int DecodeZigZag32(uint n)
         {
             return (int)(n >> 1) ^ -(int)(n & 1);
         }
@@ -911,7 +911,7 @@ namespace Google.Protobuf
         /// sign-extended to 64 bits to be varint encoded, thus always taking
         /// 10 bytes on the wire.)
         /// </remarks>
-        internal static long DecodeZigZag64(ulong n)
+        public static long DecodeZigZag64(ulong n)
         {
             return (long)(n >> 1) ^ -(long)(n & 1);
         }
@@ -925,7 +925,7 @@ namespace Google.Protobuf
         /// limit is returned.
         /// </summary>
         /// <returns>The old limit.</returns>
-        internal int PushLimit(int byteLimit)
+        public int PushLimit(int byteLimit)
         {
             if (byteLimit < 0)
             {
@@ -963,7 +963,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Discards the current limit, returning the previous limit.
         /// </summary>
-        internal void PopLimit(int oldLimit)
+        public void PopLimit(int oldLimit)
         {
             currentLimit = oldLimit;
             RecomputeBufferSizeAfterLimit();

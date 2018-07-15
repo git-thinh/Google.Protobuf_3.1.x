@@ -371,23 +371,23 @@ namespace Google.Protobuf
         /// <summary>
         /// Returns a delegate to write a value (unconditionally) to a coded output stream.
         /// </summary>
-        internal Action<CodedOutputStream, T> ValueWriter { get; }
+        public Action<CodedOutputStream, T> ValueWriter { get; }
 
         /// <summary>
         /// Returns the size calculator for just a value.
         /// </summary>
-        internal Func<T, int> ValueSizeCalculator { get; }
+        public Func<T, int> ValueSizeCalculator { get; }
 
         /// <summary>
         /// Returns a delegate to read a value from a coded input stream. It is assumed that
         /// the stream is already positioned on the appropriate tag.
         /// </summary>
-        internal Func<CodedInputStream, T> ValueReader { get; }
+        public Func<CodedInputStream, T> ValueReader { get; }
 
         /// <summary>
         /// Returns the fixed size for an entry, or 0 if sizes vary.
         /// </summary>
-        internal int FixedSize { get; }
+        public int FixedSize { get; }
 
         /// <summary>
         /// Gets the tag of the codec.
@@ -395,7 +395,7 @@ namespace Google.Protobuf
         /// <value>
         /// The tag of the codec.
         /// </value>
-        internal uint Tag { get; }
+        public uint Tag { get; }
 
         /// <summary>
         /// Default value for this codec. Usually the same for every instance of the same type, but
@@ -405,7 +405,7 @@ namespace Google.Protobuf
         /// <value>
         /// The default value of the codec's type.
         /// </value>
-        internal T DefaultValue { get; }
+        public T DefaultValue { get; }
 
         private readonly int tagSize;
         

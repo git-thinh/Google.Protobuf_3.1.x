@@ -40,7 +40,7 @@ namespace Google.Protobuf.Reflection
     /// <summary>
     /// Contains lookup tables containing all the descriptors defined in a particular file.
     /// </summary>
-    internal sealed class DescriptorPool
+    public sealed class DescriptorPool
     {
         private readonly IDictionary<string, IDescriptor> descriptorsByName =
             new Dictionary<string, IDescriptor>();
@@ -53,7 +53,7 @@ namespace Google.Protobuf.Reflection
 
         private readonly HashSet<FileDescriptor> dependencies;
 
-        internal DescriptorPool(FileDescriptor[] dependencyFiles)
+        public DescriptorPool(FileDescriptor[] dependencyFiles)
         {
             dependencies = new HashSet<FileDescriptor>();
             for (int i = 0; i < dependencyFiles.Length; i++)
@@ -86,7 +86,7 @@ namespace Google.Protobuf.Reflection
         /// <param name="fullName">Fully-qualified name to look up</param>
         /// <returns>The symbol with the given name and type,
         /// or null if the symbol doesn't exist or has the wrong type</returns>
-        internal T FindSymbol<T>(string fullName) where T : class
+        public T FindSymbol<T>(string fullName) where T : class
         {
             IDescriptor result;
             descriptorsByName.TryGetValue(fullName, out result);
@@ -117,7 +117,7 @@ namespace Google.Protobuf.Reflection
         /// exists under the same name, an exception is thrown. If the package
         /// has multiple components, this also adds the parent package(s).
         /// </summary>
-        internal void AddPackage(string fullName, FileDescriptor file)
+        public void AddPackage(string fullName, FileDescriptor file)
         {
             int dotpos = fullName.LastIndexOf('.');
             String name;
@@ -150,7 +150,7 @@ namespace Google.Protobuf.Reflection
         /// </summary>
         /// <exception cref="DescriptorValidationException">The symbol already existed
         /// in the symbol table.</exception>
-        internal void AddSymbol(IDescriptor descriptor)
+        public void AddSymbol(IDescriptor descriptor)
         {
             ValidateSymbolName(descriptor);
             String fullName = descriptor.FullName;
@@ -206,14 +206,14 @@ namespace Google.Protobuf.Reflection
         /// Returns the field with the given number in the given descriptor,
         /// or null if it can't be found.
         /// </summary>
-        internal FieldDescriptor FindFieldByNumber(MessageDescriptor messageDescriptor, int number)
+        public FieldDescriptor FindFieldByNumber(MessageDescriptor messageDescriptor, int number)
         {
             FieldDescriptor ret;
             fieldsByNumber.TryGetValue(new DescriptorIntPair(messageDescriptor, number), out ret);
             return ret;
         }
 
-        internal EnumValueDescriptor FindEnumValueByNumber(EnumDescriptor enumDescriptor, int number)
+        public EnumValueDescriptor FindEnumValueByNumber(EnumDescriptor enumDescriptor, int number)
         {
             EnumValueDescriptor ret;
             enumValuesByNumber.TryGetValue(new DescriptorIntPair(enumDescriptor, number), out ret);
@@ -225,7 +225,7 @@ namespace Google.Protobuf.Reflection
         /// </summary>
         /// <exception cref="DescriptorValidationException">A field with the same
         /// containing type and number already exists.</exception>
-        internal void AddFieldByNumber(FieldDescriptor field)
+        public void AddFieldByNumber(FieldDescriptor field)
         {
             DescriptorIntPair key = new DescriptorIntPair(field.ContainingType, field.FieldNumber);
             FieldDescriptor old;
@@ -244,7 +244,7 @@ namespace Google.Protobuf.Reflection
         /// with the same type and number already exists, this method does nothing.
         /// (This is allowed; the first value defined with the number takes precedence.)
         /// </summary>
-        internal void AddEnumValueByNumber(EnumValueDescriptor enumValue)
+        public void AddEnumValueByNumber(EnumValueDescriptor enumValue)
         {
             DescriptorIntPair key = new DescriptorIntPair(enumValue.EnumDescriptor, enumValue.Number);
             if (!enumValuesByNumber.ContainsKey(key))
@@ -263,7 +263,7 @@ namespace Google.Protobuf.Reflection
         /// This isn't heavily optimized, but it's only used during cross linking anyway.
         /// If it starts being used more widely, we should look at performance more carefully.
         /// </remarks>
-        internal IDescriptor LookupSymbol(string name, IDescriptor relativeTo)
+        public IDescriptor LookupSymbol(string name, IDescriptor relativeTo)
         {
             IDescriptor result;
             if (name.StartsWith("."))

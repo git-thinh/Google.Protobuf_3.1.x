@@ -65,7 +65,7 @@ namespace Google.Protobuf.Reflection
         private readonly IList<FieldDescriptor> fieldsInNumberOrder;
         private readonly IDictionary<string, FieldDescriptor> jsonFieldMap;
         
-        internal MessageDescriptor(DescriptorProto proto, FileDescriptor file, MessageDescriptor parent, int typeIndex, GeneratedClrTypeInfo generatedCodeInfo)
+        public MessageDescriptor(DescriptorProto proto, FileDescriptor file, MessageDescriptor parent, int typeIndex, GeneratedClrTypeInfo generatedCodeInfo)
             : base(file, file.ComputeFullName(parent, proto.Name), typeIndex)
         {
             Proto = proto;
@@ -118,7 +118,7 @@ namespace Google.Protobuf.Reflection
         /// </summary>
         public override string Name => Proto.Name;
 
-        internal DescriptorProto Proto { get; }
+        public DescriptorProto Proto { get; }
 
         /// <summary>
         /// The CLR type used to represent message instances from this descriptor.
@@ -165,13 +165,13 @@ namespace Google.Protobuf.Reflection
         /// <summary>
         /// Returns whether this message is one of the "well known types" which may have runtime/protoc support.
         /// </summary>
-        internal bool IsWellKnownType => File.Package == "google.protobuf" && WellKnownTypeNames.Contains(File.Name);
+        public bool IsWellKnownType => File.Package == "google.protobuf" && WellKnownTypeNames.Contains(File.Name);
 
         /// <summary>
         /// Returns whether this message is one of the "wrapper types" used for fields which represent primitive values
         /// with the addition of presence.
         /// </summary>
-        internal bool IsWrapperType => File.Package == "google.protobuf" && File.Name == "google/protobuf/wrappers.proto";
+        public bool IsWrapperType => File.Package == "google.protobuf" && File.Name == "google/protobuf/wrappers.proto";
 
         /// <value>
         /// If this is a nested type, get the outer descriptor, otherwise null.
@@ -224,7 +224,7 @@ namespace Google.Protobuf.Reflection
         /// <summary>
         /// Looks up and cross-links all fields and nested types.
         /// </summary>
-        internal void CrossLink()
+        public void CrossLink()
         {
             foreach (MessageDescriptor message in NestedTypes)
             {
@@ -249,7 +249,7 @@ namespace Google.Protobuf.Reflection
         {
             private readonly MessageDescriptor messageDescriptor;
 
-            internal FieldCollection(MessageDescriptor messageDescriptor)
+            public FieldCollection(MessageDescriptor messageDescriptor)
             {
                 this.messageDescriptor = messageDescriptor;
             }
@@ -276,7 +276,7 @@ namespace Google.Protobuf.Reflection
             /// in the message would result two entries, one with a key <c>fooBar</c> and one with a key
             /// <c>foo_bar</c>, both referring to the same field.
             /// </value>
-            internal IDictionary<string, FieldDescriptor> ByJsonName() => messageDescriptor.jsonFieldMap;
+            public IDictionary<string, FieldDescriptor> ByJsonName() => messageDescriptor.jsonFieldMap;
 
             /// <summary>
             /// Retrieves the descriptor for the field with the given number.

@@ -57,7 +57,7 @@ namespace Google.Protobuf
                 "Completed reading a message while more data was available in the stream.");
         }
 
-        internal static InvalidProtocolBufferException TruncatedMessage()
+        public static InvalidProtocolBufferException TruncatedMessage()
         {
             return new InvalidProtocolBufferException(
                 "While parsing a protocol message, the input ended unexpectedly " +
@@ -73,7 +73,7 @@ namespace Google.Protobuf
                 "which claimed to have negative size.");
         }
 
-        internal static InvalidProtocolBufferException MalformedVarint()
+        public static InvalidProtocolBufferException MalformedVarint()
         {
             return new InvalidProtocolBufferException(
                 "CodedInputStream encountered a malformed varint.");

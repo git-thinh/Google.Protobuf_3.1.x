@@ -70,7 +70,7 @@ namespace Google.Protobuf.Reflection
         /// <summary>
         /// Computes the full name of a descriptor within this file, with an optional parent message.
         /// </summary>
-        internal string ComputeFullName(MessageDescriptor parent, string name)
+        public string ComputeFullName(MessageDescriptor parent, string name)
         {
             if (parent != null)
             {
@@ -123,7 +123,7 @@ namespace Google.Protobuf.Reflection
         /// <value>
         /// The descriptor in its protocol message representation.
         /// </value>
-        internal FileDescriptorProto Proto { get; }
+        public FileDescriptorProto Proto { get; }
 
         /// <value>
         /// The file name.
@@ -179,7 +179,7 @@ namespace Google.Protobuf.Reflection
         /// <value>
         /// Pool containing symbol descriptors.
         /// </value>
-        internal DescriptorPool DescriptorPool { get; }
+        public DescriptorPool DescriptorPool { get; }
 
         /// <summary>
         /// Finds a type (message, enum, service or extension) in the file by name. Does not find nested types.

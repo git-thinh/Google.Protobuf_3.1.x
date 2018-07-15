@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A1BB0E1-D742-4BD5-94EA-7AC72016770A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Google.Protobuf.Test</RootNamespace>
+    <AssemblyName>Google.Protobuf.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net20\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUnit.System.Linq, Version=0.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net20\NUnit.System.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ByteStringTest.cs" />
+    <Compile Include="CodedInputStreamExtensions.cs" />
+    <Compile Include="CodedInputStreamTest.cs" />
+    <Compile Include="CodedOutputStreamTest.cs" />
+    <Compile Include="Collections\MapFieldTest.cs" />
+    <Compile Include="Collections\RepeatedFieldTest.cs" />
+    <Compile Include="DeprecatedMemberTest.cs" />
+    <Compile Include="EqualityTester.cs" />
+    <Compile Include="FieldCodecTest.cs" />
+    <Compile Include="GeneratedMessageTest.cs" />
+    <Compile Include="IssuesTest.cs" />
+    <Compile Include="JsonParserTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\DescriptorsTest.cs" />
+    <Compile Include="Reflection\FieldAccessTest.cs" />
+    <Compile Include="Reflection\TypeRegistryTest.cs" />
+    <Compile Include="SampleEnum.cs" />
+    <Compile Include="SampleMessages.cs" />
+    <Compile Include="TestCornerCases.cs" />
+    <Compile Include="TestProtos\ForeignMessagePartial.cs" />
+    <Compile Include="TestProtos\MapUnittestProto3.cs" />
+    <Compile Include="TestProtos\UnittestImportProto3.cs" />
+    <Compile Include="TestProtos\UnittestImportPublicProto3.cs" />
+    <Compile Include="TestProtos\UnittestIssues.cs" />
+    <Compile Include="TestProtos\UnittestProto3.cs" />
+    <Compile Include="TestProtos\UnittestWellKnownTypes.cs" />
+    <Compile Include="WellKnownTypes\AnyTest.cs" />
+    <Compile Include="WellKnownTypes\FieldMaskTest.cs" />
+    <Compile Include="WellKnownTypes\WrappersTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Google.Protobuf_3.1.x_Nov.30.2016\Google.Protobuf_3.1.x_Nov.30.2016.csproj">
+      <Project>{9f9d77b8-fa5e-4f1a-b3e7-03442b8ea892}</Project>
+      <Name>Google.Protobuf_3.1.x_Nov.30.2016</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compatibility\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

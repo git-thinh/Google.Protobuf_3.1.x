@@ -37,6 +37,6 @@ namespace Google.Protobuf.WellKnownTypes
         /// <summary>
         /// Field number for the single "value" field in all wrapper types.
         /// </summary>
-        internal const int WrapperValueFieldNumber = Int32Value.ValueFieldNumber;
+        public const int WrapperValueFieldNumber = Int32Value.ValueFieldNumber;
     }
 }

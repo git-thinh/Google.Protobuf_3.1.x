@@ -179,7 +179,7 @@ namespace Google.Protobuf
         /// Creates a template instance ready for population.
         /// </summary>
         /// <returns>An empty message.</returns>
-        internal new T CreateTemplate()
+        public new T CreateTemplate()
         {
             return factory();
         }
