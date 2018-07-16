@@ -72,3 +72,5 @@ AddressBook/obj/Debug/AddressBookDemo.csproj.FileListAbsolute.txt
 AddressBook/obj/Debug/AddressBookDemo.csprojResolveAssemblyReference.cache
 /build/*.pdb
 /build/*.exe
+.vs/Google.Protobuf_3.1.x/v15/Server/sqlite3/storage.ide-wal
+.vs/Google.Protobuf_3.1.x/v15/Server/sqlite3/storage.ide-shm

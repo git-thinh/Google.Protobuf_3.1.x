@@ -17,6 +17,30 @@ namespace test
             AddressBook l1 = new AddressBook();
             l1.People.Add(new Person() { Id = 1, Name = "ABC", Email = "abc@gmail.com" });
 
+            uint tagLengthDelimited = WireFormat.MakeTag(AddressBook.PeopleFieldNumber, WireFormat.WireType.LengthDelimited);
+
+
+            //// Hand-craft the stream to contain a single entry with just a value.
+            //using (var memoryStream = new MemoryStream())
+            //using (var output = new CodedOutputStream(memoryStream))
+            //{
+            //    output.WriteTag(AddressBook.PeopleFieldNumber, WireFormat.WireType.LengthDelimited);
+
+            //    // Size of the entry (tag, size written by WriteMessage, data written by WriteMessage)
+            //    output.WriteLength(2 + l1.CalculateSize());
+            //    output.WriteTag(2, WireFormat.WireType.LengthDelimited);
+            //    output.WriteMessage(l1);
+            //    output.Flush();
+
+            //    byte[] bf = memoryStream.ToArray();
+            //    var parsed = AddressBook.Parser.ParseFrom(bf);
+            //}
+
+
+
+
+
+
             var clone = l1.Clone();
             byte[] bytes = l1.ToByteArray();
             string json1 = l1.ToString();
@@ -42,8 +66,14 @@ namespace test
                 ////output.WriteTag(2, WireFormat.WireType.Varint);
                 //output.WriteInt32(123);
 
+                //output.WriteFixed32(0);
+                //output.WriteFixed32(34567);
                 //output.WriteRawVarint32(0);
-                output.WriteRawVarint32(34567);
+                //output.WriteRawVarint32(34567);
+                //output.WriteLength(7);
+
+                output.WriteRawVarint32(99);
+                output.WriteFixed32(34567);
 
                 l1.WriteTo(output);
 
@@ -52,23 +82,41 @@ namespace test
                 buf = ms.ToArray();
             }
 
-            int tag = 0;
+            byte type = 0;
+            uint tag = 0;
             AddressBook l2 = null;
+            string log;
             if (buf != null && buf.Length > 0)
             {
-                using (var input = new CodedInputStream(buf))
+                //using (var input = new CodedInputStream(buf))
+                //{
+                //    //tag = input.ReadInt32();
+                //    tag = input.ReadFixed32();
+                //    try
+                //    {
+                //        l2 = AddressBook.Parser.ParseFrom(input);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        log = ex.Message;
+                //    }
+                //}
+
+                type = buf[0];
+                tag = BitConverter.ToUInt32(buf, 1);
+
+                using (CodedInputStream input = new CodedInputStream(buf, 5, buf.Length - 5))
                 {
-                    tag = input.ReadInt32();
-                    //uint tag2 = input.ReadTag();
                     try
                     {
                         l2 = AddressBook.Parser.ParseFrom(input);
                     }
                     catch (Exception ex)
                     {
-                        string log = ex.Message;
+                        log = ex.Message;
                     }
                 }
+
             }
 
 
