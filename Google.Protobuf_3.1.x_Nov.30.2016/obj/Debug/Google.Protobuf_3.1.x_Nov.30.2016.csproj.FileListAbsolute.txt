@@ -2,3 +2,9 @@ E:\Google.Protobuf_3.1.x\build\Google.Protobuf.dll
 E:\Google.Protobuf_3.1.x\build\Google.Protobuf.pdb
 E:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf.dll
 E:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf.pdb
+C:\Google.Protobuf_3.1.x\build\Google.Protobuf.dll
+C:\Google.Protobuf_3.1.x\build\Google.Protobuf.pdb
+C:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf_3.1.x_Nov.30.2016.csprojResolveAssemblyReference.cache
+C:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf_3.1.x_Nov.30.2016.csproj.CoreCompileInputs.cache
+C:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf.dll
+C:\Google.Protobuf_3.1.x\Google.Protobuf_3.1.x_Nov.30.2016\obj\Debug\Google.Protobuf.pdb
