@@ -53,7 +53,12 @@ namespace test
 
             var empty = Empty.Parser.ParseFrom(bytes);
 
-
+            // this works - json below
+            JsonFormatter jsf = new JsonFormatter(new JsonFormatter.Settings(true));
+            string jsonString = jsf.Format(l1);
+            // this throws error - see exception details below
+            var lsJson = JsonParser.Default.Parse<AddressBook>(jsonString);
+            var lsJson2 = JsonParser.Default.Parse(jsonString, AddressBook.Descriptor);
 
 
 
