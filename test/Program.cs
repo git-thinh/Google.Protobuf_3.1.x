@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf;
 using Google.Protobuf.Examples.AddressBook;
+using Google.Protobuf.WellKnownTypes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,8 +50,18 @@ namespace test
             JsonFormatter.Default.Format(l1, writer);
             string json3 = writer.ToString();
 
-            byte[] buf = null;
 
+            var empty = Empty.Parser.ParseFrom(bytes);
+
+
+
+
+
+
+
+
+
+            byte[] buf = null; 
             using (var ms = new MemoryStream())
             using (var output = new CodedOutputStream(ms))
             {
