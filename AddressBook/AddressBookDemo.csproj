@@ -60,6 +60,9 @@
   <ItemGroup>
     <Content Include="System.Core.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="addressbook.proto" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

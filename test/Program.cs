@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf;
 using Google.Protobuf.Examples.AddressBook;
 using Google.Protobuf.WellKnownTypes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,10 +61,9 @@ namespace test
             var lsJson = JsonParser.Default.Parse<AddressBook>(jsonString);
             var lsJson2 = JsonParser.Default.Parse(jsonString, AddressBook.Descriptor);
 
+            // MessageDescriptor -> 
 
-
-
-
+            //string jsonMessageDescriptor = JsonConvert.SerializeObject(AddressBook.Descriptor);
 
 
             byte[] buf = null; 
