@@ -278,7 +278,8 @@ namespace Google.Protobuf
         {
             if (!leaveOpen)
             {
-                input.Dispose();
+                if (input != null)
+                    input.Dispose();
             }
         }
 
