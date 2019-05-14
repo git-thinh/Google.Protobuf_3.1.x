@@ -6,3 +6,10 @@ E:\Google.Protobuf_3.1.x\Google.Protobuf.Examples.AddressBook\obj\Debug\AddressB
 E:\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csprojResolveAssemblyReference.cache
 E:\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.exe
 E:\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.pdb
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\build\AddressBookDemo.exe
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\build\AddressBookDemo.pdb
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csprojAssemblyReference.cache
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csproj.CoreCompileInputs.cache
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csproj.CopyComplete
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.exe
+D:\Projects\Protobuf\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.pdb

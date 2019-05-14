@@ -1,0 +1,12 @@
+
+.vs/Google.Protobuf_3.1.x/v14/.suo
+.vs/Google.Protobuf_3.1.x/v16/.suo
+.vs/Google.Protobuf_3.1.x/v16/Server/sqlite3/db.lock
+.vs/Google.Protobuf_3.1.x/v16/Server/sqlite3/storage.ide
+.vs/Google.Protobuf_3.1.x/v16/Server/sqlite3/storage.ide-shm
+.vs/Google.Protobuf_3.1.x/v16/Server/sqlite3/storage.ide-wal
+build/addressbook.data
+build/AddressBookDemo.exe
+build/AddressBookDemo.pdb
+build/Google.Protobuf.dll
+build/Google.Protobuf.pdb
