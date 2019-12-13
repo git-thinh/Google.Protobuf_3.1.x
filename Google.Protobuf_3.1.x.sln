@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google.Protobuf_3.1.x_Nov.30.2016", "Google.Protobuf_3.1.x_Nov.30.2016\Google.Protobuf_3.1.x_Nov.30.2016.csproj", "{9F9D77B8-FA5E-4F1A-B3E7-03442B8EA892}"
 EndProject
@@ -12,6 +12,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{BE20AB4F-3DF5-4DBA-BAE1-2A62D59208C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{CEF1F54F-CF02-4C00-83BF-FD2F90C76035}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{EAC44E53-0E6B-4EAE-9529-4F9BC6098602}"
+	ProjectSection(SolutionItems) = preProject
+		tools\addressbook.proto = tools\addressbook.proto
+		tools\message.proto = tools\message.proto
+		tools\ReadMe.txt = tools\ReadMe.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

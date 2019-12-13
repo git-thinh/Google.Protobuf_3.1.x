@@ -13,6 +13,32 @@ namespace test
     {
         static void Main(string[] args)
         {
+            Message m = new Message();
+            m.Text = "Nguyễn Văn Thịnh";
+            m.Lang = "Việt Nam";
+
+            string json = JsonConvert.SerializeObject(m);
+            var bj = System.Text.Encoding.UTF8.GetBytes(json);
+
+            byte[] buf = null;
+            using (var ms = new MemoryStream())
+            using (var output = new CodedOutputStream(ms))
+            {
+                m.WriteTo(output);
+                output.Flush();
+                buf = ms.ToArray();
+            }
+            
+            string hex = BitConverter.ToString(buf).Replace("-", " ");
+            Console.WriteLine(hex);
+
+            Console.ReadLine();
+        }
+
+        static void Main1(string[] args)
+        {
+
+
             // Serialize and parse it.  Make sure to parse from an InputStream, not
             // directly from a ByteString, so that CodedInputStream uses buffered
             // reading.
@@ -66,7 +92,7 @@ namespace test
             //string jsonMessageDescriptor = JsonConvert.SerializeObject(AddressBook.Descriptor);
 
 
-            byte[] buf = null; 
+            byte[] buf = null;
             using (var ms = new MemoryStream())
             using (var output = new CodedOutputStream(ms))
             {

@@ -1,0 +1,6 @@
+F:\Src\Google.Protobuf_3.1.x\build\AddressBookDemo.exe
+F:\Src\Google.Protobuf_3.1.x\build\AddressBookDemo.pdb
+F:\Src\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csprojAssemblyReference.cache
+F:\Src\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.csproj.CopyComplete
+F:\Src\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.exe
+F:\Src\Google.Protobuf_3.1.x\AddressBook\obj\Debug\AddressBookDemo.pdb
