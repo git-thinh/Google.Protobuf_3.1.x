@@ -4,10 +4,13 @@
     <script src="bytebuffer.js"></script>
     <script src="protobuf.js"></script>
     <script src="axios.min.js"></script>
+
+    <script src="snappyjs/snappyjs.js"></script>
 </head>
 <body>
     <pre id="content"></pre>
-    <button onClick="sendMessage()">send message to server</button>
+    <button onClick="sendMessage()">send message to server</button><br />
+    <button onClick="sendMessage2()">send message SnappyJS to server</button>
     <script type="text/javascript">
         "use strict";
         let ProtoBuf = dcodeIO.ProtoBuf
@@ -29,20 +32,55 @@
                     console.log(response)
                 })
         }
+
         let sendMessage = () => {
-            let msg = new Message({ text: 'Nguyễn Văn Thịnh', lang: 'Việt Nam' })
-            axios.post('/api/messages', msg.toArrayBuffer(),
-                {
-                    responseType: 'arraybuffer',
-                    headers: { 'Content-Type': 'application/octet-stream' }
-                }
-            ).then(function (response) {
-                console.log(response)
-            })
-                .catch(function (response) {
+            let msg = new Message({ text: 'Nguyễn Văn Thịnh', lang: 'Việt Nam' });
+         
+            axios
+                .post('/api/messages', msg.toArrayBuffer(),
+                    {
+                        responseType: 'arraybuffer',
+                        headers: { 'Content-Type': 'application/octet-stream' }
+                    }
+                )
+                .then(function (response) {
                     console.log(response)
                 })
+                .catch(function (response) {
+                    console.log(response)
+                });
         }
+
+
+        let sendMessage2 = () => {
+            let msg = new Message({ text: 'Nguyễn Văn Thịnh', lang: 'Việt Nam' });
+
+            //var buffer = new ArrayBuffer(100)
+            var buffer = msg.toArrayBuffer();
+            //// fill data in buffer
+            var compressed = SnappyJS.compress(buffer);
+            var uncompressed = SnappyJS.uncompress(compressed);
+
+            console.log('POST_ZIP: buffer = ', buffer);
+            console.log('POST_ZIP: compressed = ', compressed);
+            console.log('POST_ZIP: uncompressed = ', uncompressed);
+
+
+            axios
+                .post('/api/messages-snappyjs', compressed,
+                    {
+                        responseType: 'arraybuffer',
+                        headers: { 'Content-Type': 'application/octet-stream' }
+                    }
+                )
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (response) {
+                    console.log(response)
+                });
+        }
+
     </script>
 </body>
 </html>

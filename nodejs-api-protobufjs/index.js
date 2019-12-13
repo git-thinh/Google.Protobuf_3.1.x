@@ -46,9 +46,9 @@ app.get('/api/messages', (req, res, next) => {
     //let msg = new Message(messages[Math.round(Math.random() * 2)]);
     let msg = new Message(messages[1]);
 
-    console.log('Encode and decode: ', Message.decode(msg.encode().toBuffer()));
+    //console.log('Encode and decode: ', Message.decode(msg.encode().toBuffer()));
 
-    console.log('Buffer we are sending: ', msg.encode().toBuffer().length);
+    //console.log('Buffer we are sending: ', msg.encode().toBuffer().length);
 
     // res.end(msg.encode().toBuffer(), 'binary') // alternative
 
@@ -76,6 +76,35 @@ app.post('/api/messages', (req, res, next) => {
 
     res.json({ ok: true });
 });
+
+
+app.post('/api/messages-snappyjs', (req, res, next) => {
+    if (req.raw) {
+        try {
+
+            let m = new Message(messages[1]);
+            console.log('test: ', m.encode().toBuffer());
+            console.log('test len: ', m.encode().toBuffer().length);
+
+            console.log('Buffer receiving: ', req.raw.length);
+            console.log('Buffer receiving: ', req.raw);
+            console.log('Buffer receiving text: ', req.raw.toString('utf8'));
+
+            // Decode the Message
+            //var msg = Message.decode(req.raw);
+            //console.log('Received "%s" in %s', msg.text, msg.lang);
+        } catch (err) {
+            console.log('Processing failed:', err);
+            next(err);
+        }
+    } else {
+        console.log("Not binary data");
+    }
+
+    res.json({ ok: true });
+});
+
+
 
 app.all('*', (req, res) => {
     res.status(400).send('Not supported');
