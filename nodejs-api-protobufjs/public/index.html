@@ -5,28 +5,124 @@
     <script src="protobuf.js"></script>
     <script src="axios.min.js"></script>
 
-    <script src="snappyjs/snappyjs.js"></script>
 </head>
 <body>
     <pre id="content"></pre>
     <button onClick="sendMessage()">send message to server</button><br />
-    <button onClick="sendMessage2()">send message SnappyJS to server</button>
+    <button onClick="sendMessage2()">send message 2 to server</button>
     <script type="text/javascript">
         "use strict";
-        let ProtoBuf = dcodeIO.ProtoBuf
-        let Message = ProtoBuf
-            .loadProtoFile('./message.proto', (err, builder) => {
-                Message = builder.build('Message')
-                loadMessage()
-            })
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful');
+                }, function (err) {
+                    // Registration failed
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        function buffer___convert_to_hex(buffer) {
+            // buffer is an ArrayBuffer
+            return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join(' ');
+        }
+
+        function buffer___convert_to_base64_v1(buffer) {
+            return btoa(new Uint8Array(buffer).reduce((data, byte) => { return data + String.fromCharCode(byte); }, ''));
+        }
+
+        function buffer___convert_to_base64_v2(arraybuffer) {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+            //// Use a lookup table to find the index.
+            //var lookup = new Uint8Array(256);
+            //for (var i = 0; i < chars.length; i++) {
+            //    lookup[chars.charCodeAt(i)] = i;
+            //}
+
+            //------------------------------------------------------------------------------------
+
+            var bytes = new Uint8Array(arraybuffer),
+                i, len = bytes.length, base64 = "";
+
+            for (i = 0; i < len; i += 3) {
+                base64 += chars[bytes[i] >> 2];
+                base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];
+                base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];
+                base64 += chars[bytes[i + 2] & 63];
+            }
+
+            if ((len % 3) === 2) {
+                base64 = base64.substring(0, base64.length - 1) + "=";
+            } else if (len % 3 === 1) {
+                base64 = base64.substring(0, base64.length - 2) + "==";
+            }
+
+            return base64;
+        }
+
+        function base64___convert_to_arrayBuffer_v2(base64) {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+            // Use a lookup table to find the index.
+            var lookup = new Uint8Array(256);
+            for (var i = 0; i < chars.length; i++) {
+                lookup[chars.charCodeAt(i)] = i;
+            }
+
+            //------------------------------------------------------------------------------------
+
+            var bufferLength = base64.length * 0.75,
+                len = base64.length, i, p = 0,
+                encoded1, encoded2, encoded3, encoded4;
+
+            if (base64[base64.length - 1] === "=") {
+                bufferLength--;
+                if (base64[base64.length - 2] === "=") {
+                    bufferLength--;
+                }
+            }
+
+            var arraybuffer = new ArrayBuffer(bufferLength),
+                bytes = new Uint8Array(arraybuffer);
+
+            for (i = 0; i < len; i += 4) {
+                encoded1 = lookup[base64.charCodeAt(i)];
+                encoded2 = lookup[base64.charCodeAt(i + 1)];
+                encoded3 = lookup[base64.charCodeAt(i + 2)];
+                encoded4 = lookup[base64.charCodeAt(i + 3)];
+
+                bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
+                bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);
+                bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);
+            }
+
+            return arraybuffer;
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        let ProtoBuf = dcodeIO.ProtoBuf;
+
+        let Message = ProtoBuf.loadProtoFile('./message.proto', (err, builder) => {
+            Message = builder.build('Message');
+            loadMessage();
+        });
 
         let loadMessage = () => {
             axios.get('/api/messages', { responseType: 'arraybuffer' })
                 .then(function (response) {
-                    console.log('Response from the server: ', response)
-                    let msg = Message.decode(response.data)
-                    console.log('Decoded message', msg)
-                    document.getElementById('content').innerText = JSON.stringify(msg, null, 2)
+                    //////console.log('Response from the server: ', response)
+                    //////let msg = Message.decode(response.data)
+                    //////console.log('Decoded message', msg)
+                    //////document.getElementById('content').innerText = JSON.stringify(msg, null, 2)
                 })
                 .catch(function (response) {
                     console.log(response)
@@ -35,7 +131,7 @@
 
         let sendMessage = () => {
             let msg = new Message({ text: 'Nguyễn Văn Thịnh', lang: 'Việt Nam' });
-         
+
             axios
                 .post('/api/messages', msg.toArrayBuffer(),
                     {
@@ -51,34 +147,33 @@
                 });
         }
 
-
         let sendMessage2 = () => {
             let msg = new Message({ text: 'Nguyễn Văn Thịnh', lang: 'Việt Nam' });
 
-            //var buffer = new ArrayBuffer(100)
             var buffer = msg.toArrayBuffer();
-            //// fill data in buffer
-            var compressed = SnappyJS.compress(buffer);
-            var uncompressed = SnappyJS.uncompress(compressed);
 
-            console.log('POST_ZIP: buffer = ', buffer);
-            console.log('POST_ZIP: compressed = ', compressed);
-            console.log('POST_ZIP: uncompressed = ', uncompressed);
+            var str_base64 = buffer___convert_to_base64_v2(buffer);
+            var arrayBuffer_from_base64 = base64___convert_to_arrayBuffer_v2(str_base64);
+            var str_hex_from_base64 = buffer___convert_to_hex(arrayBuffer_from_base64);
 
+            console.log('POST: buffer = ', buffer___convert_to_hex(buffer));
+            console.log('POST: base64 v1 = ', buffer___convert_to_base64_v1(buffer));
+            console.log('POST: base64 v2 = ', str_base64);
+            console.log('POST: buffer v2 = ', str_hex_from_base64);
 
-            axios
-                .post('/api/messages-snappyjs', compressed,
-                    {
-                        responseType: 'arraybuffer',
-                        headers: { 'Content-Type': 'application/octet-stream' }
-                    }
-                )
-                .then(function (response) {
-                    console.log(response)
-                })
-                .catch(function (response) {
-                    console.log(response)
-                });
+            ////////axios
+            ////////    .post('/api/messages-snappyjs', compressed,
+            ////////        {
+            ////////            responseType: 'arraybuffer',
+            ////////            headers: { 'Content-Type': 'application/octet-stream' }
+            ////////        }
+            ////////    )
+            ////////    .then(function (response) {
+            ////////        console.log(response)
+            ////////    })
+            ////////    .catch(function (response) {
+            ////////        console.log(response)
+            ////////    });
         }
 
     </script>

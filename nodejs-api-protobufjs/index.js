@@ -77,8 +77,7 @@ app.post('/api/messages', (req, res, next) => {
     res.json({ ok: true });
 });
 
-
-app.post('/api/messages-snappyjs', (req, res, next) => {
+app.post('/api/messages-test', (req, res, next) => {
     if (req.raw) {
         try {
 
@@ -104,10 +103,51 @@ app.post('/api/messages-snappyjs', (req, res, next) => {
     res.json({ ok: true });
 });
 
-
-
 app.all('*', (req, res) => {
     res.status(400).send('Not supported');
 });
+
+
+function Utf8ArrayToStr(array) {
+    var out, i, len, c;
+    var char2, char3;
+
+    out = "";
+    len = array.length;
+    i = 0;
+    while (i < len) {
+        c = array[i++];
+        switch (c >> 4) {
+            case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
+                // 0xxxxxxx
+                out += String.fromCharCode(c);
+                break;
+            case 12: case 13:
+                // 110x xxxx   10xx xxxx
+                char2 = array[i++];
+                out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+                break;
+            case 14:
+                // 1110 xxxx  10xx xxxx  10xx xxxx
+                char2 = array[i++];
+                char3 = array[i++];
+                out += String.fromCharCode(((c & 0x0F) << 12) |
+                    ((char2 & 0x3F) << 6) |
+                    ((char3 & 0x3F) << 0));
+                break;
+        }
+    }
+
+    return out;
+}
+
+
+var array = new Uint8Array(3);
+array[0] = 0xe2;
+array[1] = 0x82;
+array[2] = 0xac;
+
+const str_test = Utf8ArrayToStr(array);
+console.log('?????? = ', str_test);
 
 app.listen(3000);
