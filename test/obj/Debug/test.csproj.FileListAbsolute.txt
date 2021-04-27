@@ -1,0 +1,6 @@
+F:\Src\Google.Protobuf_3.1.x\build\test.exe
+F:\Src\Google.Protobuf_3.1.x\build\test.pdb
+F:\Src\Google.Protobuf_3.1.x\test\obj\Debug\test.csprojAssemblyReference.cache
+F:\Src\Google.Protobuf_3.1.x\test\obj\Debug\test.csproj.CopyComplete
+F:\Src\Google.Protobuf_3.1.x\test\obj\Debug\test.exe
+F:\Src\Google.Protobuf_3.1.x\test\obj\Debug\test.pdb
