@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
-    "protobufjs": "^5.0.1"
+    "protobufjs": "^6.11.3"
   }
 }
